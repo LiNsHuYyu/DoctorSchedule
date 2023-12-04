@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- 設定頁面標題 -->
+    @{
+        ViewData["Title"] = "排班系統";
+    }
+
+    <title>@ViewData["Title"]</title>
+
+    <!-- 其他的 head 內容（如額外的 CSS 連結或樣式） -->
+    <link href="~/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @* <h2 class="display-6 text-center mb-4">管理者設置排班醫師條件</h2> *@
+    <br>
+    <br>
+    <br>
+
+    <div class="container mt-3">
+        <!-- 頁籤 -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "ManagerHome")">查看班表</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="@Url.Action("Index", "SetDocs")">設置排班</a>
+            </li>
+        </ul>
+
+        <!-- 表單 -->
+        <div class="d-flex flex-column align-items-center">
+            <!-- 科別 -->
+            <div class="dropdown mt-3">
+                <!-- 科別按鈕組 -->
+                <div class="btn-group mt-3" role="group" aria-label="Department Buttons">
+                    <button type="button" class="btn btn-secondary department-btn" data-department="internal">內科部</button>
+                    <button type="button" class="btn btn-secondary department-btn" data-department="surgery">外科部</button>
+                    <button type="button" class="btn btn-secondary department-btn" data-department="cardiovascular">心臟血管醫學部</button>
+                    <button type="button" class="btn btn-secondary department-btn" data-department="pediatrics">兒童醫學部</button>
+                    <button type="button" class="btn btn-secondary department-btn" data-department="obstetrics">婦產部</button>
+                    <button type="button" class="btn btn-secondary department-btn" data-department="specialties">其他專科</button>
+                    <button type="button" class="btn btn-secondary department-btn" data-department="feature">特色中心</button>
+                    <button type="button" class="btn btn-secondary department-btn" data-department="covid">新冠肺炎專區</button>
+                </div>
+            </div>
+
+            <!-- 細分科別按鈕將顯示在這個容器內 -->
+            <div id="sub-departments"></div>
+
+            <!-- 病房 -->
+            <div id="ward-btn" class="dropdown mt-3">
+                <!-- 病房按鈕組 -->
+                <div class="btn-group mt-3" role="group" aria-label="Department Buttons">
+                    <button type="button" class="btn btn-secondary">普通/一般病房</button>
+                    <button type="button" class="btn btn-secondary">加護病房</button>
+                </div>
+            </div>
+        </div>
+
+        <!--下一步btn-->
+        <div class="button-container">
+            <button type="button" class="btn btn-primary" id="next-step-button">下一步</button>
+        </div>
+ 
+    </div>
+
+    <!-- 其他的 JavaScript 檔案或程式碼 -->
+    <script src="~/js/setdocs.js" asp-append-version="true"></script>
+</body>

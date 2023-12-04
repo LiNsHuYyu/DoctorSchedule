@@ -1,0 +1,155 @@
+.login-box {
+    max-width: 400px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.btn-custom {
+    background-color: rgb(93, 168, 117); /* 設定按鈕顏色為淺綠色 */
+    color: white; /* 設定文字顏色 */
+    width: 100%; /* 按鈕寬度設為容器的三分之一 */
+    margin: 0 auto; /* 水平置中 */
+}
+.d-grid {
+    width: 50%; /* 將 .d-grid 容器的寬度設為登入框的一半 */
+    margin: 0 auto; 
+}
+.fixed-bottom-left {
+    position: fixed;
+    left: 20pt;
+    bottom: 20pt;
+}
+.fixed-top-right {
+    position: fixed;
+    right: 30pt;
+    top: 10pt;
+    background-color: rgb(229, 70, 83); /* 設定按鈕顏色為紅色 */
+    color: white; /* 設定文字顏色 */
+}
+.logo-link {
+    position: fixed;
+    left: 10pt;
+    top: 10pt;
+    height: 50px; /* 或您希望的大小 */
+    z-index: 1000; /* 確保 logo 出現在最上層 */
+}
+.logo-link img {
+    height: 100%;
+    width: auto; /* 保持圖片比例 */
+}
+.info-box {
+    position: fixed;
+    right: calc(30pt + 60px + 20pt); /* 登出按鈕的寬度加上間距 */
+    top: 10pt; /* 與登出按鈕相同 */
+    border: 2px solid rgb(255, 108, 108); /* 紅色邊框 */
+    background-color: #ffe2e2; /* 淺紅色背景 */
+    color: black;
+    padding: 10px;
+    box-sizing: border-box;
+}
+@media (max-width: 768px) {
+    .info-box {
+        right: calc(10pt + 50px + 20pt); /* 適應小屏幕 */
+    }
+}
+.info-box .h6 {
+    margin-bottom: 0; /* 移除段落下方的間距 */
+}
+/* 頁籤樣式調整 */
+.nav-tabs {
+    margin-bottom: 20pt; /* 頁籤與內容之間的間距 */
+}
+/* 下拉選單樣式 */
+.dropdown {
+    position: relative;
+}
+/* 班表區塊樣式 */
+.calendar {
+    background-color: #f0f8ff; /* 淺藍色背景 */
+    border: 1px solid #add8e6; /* 正藍色邊框 */
+    border-radius: 5px; /* 圓角 */
+    padding: 15px;
+}
+/* 暫定班表樣式 */
+.temporary-schedule .border {
+    background-color: #f8f9fa; /* Bootstrap 淺灰色背景 */
+    border-color: red; /* 正紅色邊框 */
+}
+.btn-selected {
+    background-color: rgb(79, 118, 214); /* 選中後的背景顏色 */
+    color: rgb(255, 255, 255)/* 選中後的文字顏色 */
+}
+
+.calendar-container {
+    max-width: 800px; /* 或根據圖片的寬度調整 */
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 3px;
+    border-top-left-radius: 5px; /* 圓角設計 */
+    border-top-right-radius: 5px;
+}
+
+.calendar {
+    background-color: white;
+    width: 100%; /* 確保表格寬度充滿其容器 */
+    border-collapse: collapse; /* 移除表格間隙 */
+    box-sizing: border-box; /* 確保邊框和內邊距包含在寬度內 */
+}
+
+.calendar-header button {
+    background-color: #fff; /* 按鈕背景色 */
+    border: 1px solid #ccc; /* 按鈕邊框色 */
+    padding: 3px 8px; /* 按鈕內邊距 */
+}
+
+.calendar-header span {
+    font-size: large; /* 調整字體大小 */
+}
+
+.calendar th {
+    font-size: 0.85em;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: rgb(182, 199, 219);
+    color: rgb(44, 60, 147);
+    padding: 3px; /* 調整填充以適應高度 */
+    height: 5px; /* 或根據圖片的行高調整 */
+}
+
+.calendar td {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px; /* 調整填充以適應高度 */
+    height: 100px; /* 或根據圖片的行高調整 */
+    text-align: right; /* 文本水平對齊左側 */
+    vertical-align: top; /* 文本垂直對齊頂部 */
+    padding-top: 3px; /* 根據需要調整 */
+    padding-right: 5px; /* 根據需要調整 */
+    /* 其他樣式 */
+}
+
+/* 為細分部門按鈕添加間距 */
+.btn-secondary.mt-2 {
+    margin-top: 2px; /* 調整上邊距 */
+    margin-bottom: 2px; /* 調整下邊距 */
+    margin-right: 5px; /* 調整右邊距 */
+    margin-left: 5px; /* 調整左邊距 */
+}
+
+.button-container {
+    text-align: center; /* 使內部元素水平置中 */
+    margin-top: 20px; /* 根據需要調整邊距 */
+}
+.btn-primary {
+    background-color: rgb(93, 168, 117);
+    border: none;
+}
+
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- 設定頁面標題 -->
+    @{
+        ViewData["Title"] = "排班系統";
+    }
+
+    <title>@ViewData["Title"]</title>
+
+    <!-- 其他的 head 內容（如額外的 CSS 連結或樣式） -->
+    <link href="~/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 頁面內容 -->
+    <!-- 會刪掉的title -->
+    @* <h2 class="display-6 text-center mb-4">管理者Home</h2> *@
+    <br>
+    <br>
+    <br>
+
+    <!-- 階段與期限 -->
+    <div class="container">
+            <div class="info-box fixed-top-right">
+        <p class="h6">本階段為 @ViewData["CurrentPhase"]<br>期限到 @ViewData["Deadline"] </p>
+    </div>
+
+    @* <!-- 返回Home/登出 -->
+    <div class="row">
+        <div class="col-12">
+            <a href="@Url.Action("Index", "Home")" class="btn fixed-top-right">登出</a>
+        </div>
+    </div> *@
+
+    @{
+        // 取得當前月份
+        var currentMonth = DateTime.Now.ToString("MMMM yyyy");
+    }
+
+    <div class="container mt-3">
+        <!-- 頁籤 -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="@Url.Action("Index", "ManagerHome")">查看班表</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "SetDocs")">設置排班</a>
+            </li>
+        </ul>
+
+        @{
+            var year = DateTime.Now.Year;
+            var month = DateTime.Now.Month;
+            var daysInMonth = DateTime.DaysInMonth(year, month);
+            var firstDayOfMonth = new DateTime(year, month, 1).DayOfWeek;
+        }
+
+
+        <!-- 當月班表顯示區 -->
+        <div class="calendar mt-3">
+            <h5>當月班表 - @currentMonth</h5>
+
+            <!-- 這裡可以插入一個月曆或者其他表示班表的元素 -->
+            <div class="calendar">
+                @* <!-- 下拉選單月份選擇 -->
+                <div class="dropdown mt-2">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        選擇月份
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        @for (int ddbtnmonth = 1; ddbtnmonth <= 12; ddbtnmonth++)
+                        {
+                            <li><a class="dropdown-item" href="#">@DateTime.Now.AddMonths(ddbtnmonth - DateTime.Now.Month).ToString("MMMM")</a></li>
+                        }
+                    </ul>
+                </div> *@
+                <!-- 月曆 -->
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button><</button>
+                        <span>@currentMonth</span>
+                        <button>></button>
+                    </div>
+                    <table class="calendar">
+                        <thead>
+                            <tr>
+                                <th>週日</th>
+                                <th>週一</th>
+                                <th>週二</th>
+                                <th>週三</th>
+                                <th>週四</th>
+                                <th>週五</th>
+                                <th>週六</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 日期行與列 -->
+                            <!-- js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 暫定班表 -->
+        <div class="temporary-schedule mt-3">
+            <div class="border border-secondary p-3">
+                <h5 class="text-secondary">暫定班表</h5>
+                <button class="btn btn-light btn-sm disabled" style="background-color: rgb(93, 168, 117);">查看</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/calender.js"></script>
+</body>
+</html>
